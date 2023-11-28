@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Туры</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+    <style>
+        .tour-card {
+            background-color: burlywood;
+            border: 1px solid #ccc;
+            border-radius: 28px;
+            padding: 30px;
+            margin-bottom: 10px;
+            width: calc(33.33% - 20px);
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+
+
+
+        .tour-card:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tour-card h2 {
+            margin-top: 0;
+        }
+
+        .tour-card p {
+            margin-bottom: 5px;
+        }
+
+        .tour-card .btn-group {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tour-card:hover .btn-group {
+            opacity: 1;
+        }
+
+        .tour-card .btn {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .btn {
+            border-radius: 10x;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="Blocks/Header :: header"></header>
+<div class="container mt-5">
+    <h1>Туры</h1>
+    <div th:each="element, iterStat : ${tours}" class="tour-card" th:classappend="${iterStat.index % 3 == 2} ? 'last-in-row'">
+        <h2 th:text="${element.destination}"></h2>
+        <p><strong>Начало тура:</strong> <span th:text="${element.start_date}"></span></p>
+        <p><strong>Конец тура:</strong> <span th:text="${element.end_date}"></span></p>
+        <p><strong>Цена:</strong> <span th:text="${element.tour_price}"></span></p>
+        <div class="btn-group">
+            <a th:href=" '/tours/' + ${element.tour_id} + '/edit'" class="btn btn-warning">Редактировать</a>
+            <form th:action="'/tours/' + ${element.tour_id} + '/remove'" method="post">
+                <button class="btn btn-warning" type="submit">Удалить</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:insert="Blocks/Footer :: footer"></footer>
+</body>
+</html>

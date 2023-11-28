@@ -1,0 +1,153 @@
+<div th:fragment="header">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .navbar {
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius:20px;
+            margin:30px;
+            padding: 15px;
+        }
+
+        .bg-light {
+            --bs-bg-opacity: 1;
+            background-color: aquamarine!important;
+        }
+
+        .justify-content-end {
+            justify-content: flex-start!important;
+        }
+
+        .navbar-brand {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .navbar-toggler {
+            border-color: #007bff;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #007bff;
+        }
+
+        .nav-link {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .dropdown-item {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .dropdown-item:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .form-control {
+            border-color: #007bff;
+        }
+
+        .btn-outline-success {
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .offcanvas-body {
+            padding: 15px;
+        }
+
+        .offcanvas-title {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .btn-close-white {
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #999;
+        }
+
+        .form-control:focus,
+        .btn-outline-success:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+
+
+    </style>
+    <nav class="navbar navbar-expand-lg bg-light" aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Меню</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/about">О нас</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                Данные о клиентах
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/clients">Клиенты</a></li>
+                                <li><a class="dropdown-item" href="/clients/add">Добавить Клиентов</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                Данные о билетах
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/tickets">Билеты</a></li>
+                                <li><a class="dropdown-item" href="/tickets/add">Добавить Билеты</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                Данные о турах
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/tours">Туры</a></li>
+                                <li><a class="dropdown-item" href="/tours/add">Добавить Туры</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Бронирование</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3 mt-lg-0" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                        <button class="btn btn-outline-success" type="submit">Найти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

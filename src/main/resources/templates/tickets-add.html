@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+</head>
+<body>
+<header th:insert="Blocks/Header :: header"></header>
+<div class="container mt-5 mb-5">
+    <h1>Добавление</h1>
+    <form action="/tickets/add" method="post">
+        <input type="text" name="departure_date" placeholder="Введите 1" class="form-control mb-3">
+        <input type="text" name="arrival_date" placeholder="Введите 2" class="form-control mb-3">
+        <input type="text" name="flight_number" placeholder="Введите 3" class="form-control mb-3">
+        <input type="text" name="departure_location" placeholder="Введите 4" class="form-control mb-3">
+        <input type="text" name="destination" placeholder="Введите 5" class="form-control mb-3">
+        <input type="text" name="ticket_price" placeholder="Введите 6" class="form-control mb-3">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+<footer th:insert="Blocks/Footer :: footer"></footer>
+</body>
+</html>
